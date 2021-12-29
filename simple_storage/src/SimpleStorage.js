@@ -1,6 +1,6 @@
 // https://docs.metamask.io/guide/ethereum-provider.html#using-the-provider
 
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {ethers} from 'ethers'
 import SimpleStorage_abi from './contracts/SimpleStorage_abi.json'
 

@@ -6,7 +6,11 @@ $ cd simple_token_wallet
 
 $ npm install ethers
 
+$ npm start
 
+navigate browser to localhost:3000
+
+-----------------------------
 
 
 

@@ -8,7 +8,6 @@ const WalletCard = () => {
 
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [defaultAccount, setDefaultAccount] = useState(null);
-	const [userBalance, setUserBalance] = useState(null);
 	const [connButtonText, setConnButtonText] = useState('Connect Wallet');
 	const [ChainID, setChainID] = useState(null);	
 	const [logInButtonText, setLogInButtonText] = useState('Log In')
@@ -62,7 +61,6 @@ const WalletCard = () => {
 			.then(result => {
 				accountChangedHandler(result[0]);
 				setConnButtonText('Wallet Connected');
-				getAccountBalance(result[0]);
 				console.log(result[0])
 			})
 			.catch(error => {
@@ -80,18 +78,7 @@ const WalletCard = () => {
 	const accountChangedHandler = (newAccount) => {
 		// ethers.utils.getAddress returns a checksum address (mixed case)
 		setDefaultAccount(ethers.utils.getAddress(newAccount));
-		getAccountBalance(newAccount.toString());
 	}
-
-	const getAccountBalance = (account) => {
-		window.ethereum.request({method: 'eth_getBalance', params: [account, 'latest']})
-		.then(balance => {
-			setUserBalance(ethers.utils.formatEther(balance));
-		})
-		.catch(error => {
-			setErrorMessage(error.message);
-		});
-	};
 
 	const chainChangedHandler = () => {
 		// reload the page to avoid any errors with chain change mid use of application
@@ -111,11 +98,8 @@ const WalletCard = () => {
 			<div className='accountDisplay'>
 				<h3>Address: {defaultAccount}</h3>
 			</div>
-			<div className='balanceDisplay'>
-				<h3>Balance: {userBalance}</h3>
-			</div>
-			{errorMessage}
 			<button onClick={LogInHandler}> {logInButtonText} </button>
+			<p> {errorMessage} </p>
 		</div>
 	);
 }
