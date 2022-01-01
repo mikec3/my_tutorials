@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LineChart from './Charts/LineChart';
 import TimeSeries from './Charts/TimeSeries';
-import Histogram from './Charts/Histogram'
+import Histogram from './Charts/Histogram';
 import './App.css';
 
 function App() {

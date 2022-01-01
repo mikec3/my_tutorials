@@ -9,7 +9,7 @@ Follow along with the youtube video (link below) to build the charts in this rep
 ![Histogram Image](React_D3_Histogram.png)
 
 ## YouTube Tutorial Link
-[YouTube tutorial](https://www.youtube.com/) for this app.
+[YouTube tutorial](https://youtu.be/fnucrqRHSlo) for this app.
 
 ## Create this app from scratch
 
